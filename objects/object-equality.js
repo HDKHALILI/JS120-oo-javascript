@@ -1,5 +1,6 @@
 function objectsEqual(obj1, obj2) {
   const obj1Keys = Object.keys(obj1);
+  if (obj1Keys.length !== Object.keys(obj2).length) return false;
 
   for (let index = 0; index < obj1Keys.length; index += 1) {
     let key = obj1Keys[index];
@@ -17,3 +18,4 @@ console.log(objectsEqual({ a: "foo" }, { a: "foo" })); // true
 console.log(objectsEqual({ a: "foo", b: "bar" }, { a: "foo" })); // false
 console.log(objectsEqual({}, {})); // true
 console.log(objectsEqual({ a: "foo", b: undefined }, { a: "foo", c: 1 })); // false
+console.log(objectsEqual({ a: "foo" }, { a: "foo", b: "bar" })); // false
